@@ -38,7 +38,6 @@ void loop() {
         knownNumber.append(number);
       }
     }
-    delay(100);
 }
 
 String getSerialString()
