@@ -65,8 +65,6 @@ String extractPhoneNumber(const String &iString)
 
 String parseSMS(const String &receivedMessage)
 {
-  if (mySerial.available() > 0)
-  {
     int mdIndex = receivedMessage.indexOf("MDnDGaTe01!");       // Megnézzük, hogy az sms tartalmazza-e a "MDnDGaTe01!" sztringet
     if (mdIndex != -1)
     {
@@ -77,6 +75,5 @@ String parseSMS(const String &receivedMessage)
         return senderNumber;
       }
     }
-  }
   return "";                                                     // Üres sztringet adunk vissza, ha nincs találat.
 }
