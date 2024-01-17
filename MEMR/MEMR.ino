@@ -1,6 +1,3 @@
-/*
-
-*/
 
 #include <SoftwareSerial.h>
 
