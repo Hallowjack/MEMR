@@ -53,7 +53,7 @@ String getSerialString()
 
 String extractPhoneNumber(const String &iString)
 {
-    int sPos = iString.indexOf("+CLIP: \"+") + 9;               // A telefonszám kezdete
+    int sPos = iString.indexOf("+CLIP: \"+") + 13;               // A telefonszám kezdete
     
     int ePos = iString.indexOf("\",", sPos);                    // A telefonszám vége
     
