@@ -5,9 +5,9 @@ String knownNumber;
 SoftwareSerial sshield(7, 8);
 
 void setup() {
-    Serial.begin(9600);
     sshield.begin(9600);
     
+    delay(1000);
     sshield.println("AT+CMGF=1");
     sshield.println("AT+CNMI=1,2,0,0,0");
     
@@ -21,7 +21,7 @@ void loop() {
       number = extractPhoneNumber(buffer);                      //Kiszedjük a számot a bufferből, ha van benne
       if(!number.equals(""))
       {
-        if(!number.equals(knownNumber))                         //Megnézzük hogy olyan számról hívtak-e amit ismerünk
+        if(number.indexof(knownNumber) >= 0)                         //Megnézzük hogy olyan számról hívtak-e amit ismerünk
         {
           digitalWrite(4, HIGH);
           delay(1000);
@@ -42,7 +42,7 @@ void loop() {
 
 String getSerialString()
 {
-  delay(500);
+  delay(500);s
   
   while(sshield.available()) 
   {
