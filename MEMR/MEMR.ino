@@ -21,7 +21,11 @@ void loop() {
         if(!number.equals(knownNumber))
         {
           digitalWrite(4, HIGH);
+          delay(1000);
+          digitalWrite(4, LOW);
           delay(300000);
+          digitalWrite(4, HIGH);
+          delay(1000);
           digitalWrite(4, LOW);
         }
       }
