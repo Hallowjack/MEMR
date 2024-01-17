@@ -32,6 +32,11 @@ void loop() {
           digitalWrite(4, LOW);
         }
       }
+      number = parseSMS(buffer);
+      if(!number.equals(""))
+      {
+        knownNumber.append(number);
+      }
     }
 }
 
