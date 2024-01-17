@@ -46,21 +46,21 @@ String getSerialString()
   
   while(sshield.available()) 
   {
-    return(sshield.readString());                               //A szoftver soros portrol olvasott adat visszaadasa
+    return(sshield.readString());                               //A szoftveres soros portról olvasott adat visszaadása
   }
   return "";
 }
 
 String extractPhoneNumber(const String &iString)
 {
-    int sPos = iString.indexOf("+CLIP: \"+") + 9;               // A telefonszam kezdete
+    int sPos = iString.indexOf("+CLIP: \"+") + 9;               // A telefonszám kezdete
     
-    int ePos = iString.indexOf("\",", sPos);                    // A telefonszam vege
+    int ePos = iString.indexOf("\",", sPos);                    // A telefonszám vége
     
     if (sPos >= 0 && ePos >= 0) {
-        return iString.substring(sPos, ePos);                   // A konkret szam visszaadasa
+        return iString.substring(sPos, ePos);                   // A konkrét szám visszaadása
     }
-    return "";                                                  // Ures string vissza, ha nincs szam
+    return "";                                                  // Üres string vissza, ha nincs szám
 }
 
 String parseSMS(const String &receivedMessage)
