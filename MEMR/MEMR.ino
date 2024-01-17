@@ -4,7 +4,7 @@
 
 #include <SoftwareSerial.h>
 
-string knownNumber = "+36302125195";
+String knownNumber = "+36302125195";
 SoftwareSerial sshield(7, 8);
 
 void setup() {
@@ -14,12 +14,14 @@ void setup() {
 }
 
 void loop() {
-    string buffer, number;
-    if(buffer = getSerialString() != "")
+    String buffer, number;
+    buffer = getSerialString();
+    if(!buffer.equals(""))
     {
-      if(number = extractPhoneNumber(buffer) != "")
+      number = extractPhoneNumber(buffer);
+      if(!number.equals(""))
       {
-        if(strcmp(number, knownNumber))
+        if(!number.equals(knownNumber))
         {
           digitalWrite(4, HIGH);
           delay(300000);
@@ -29,7 +31,7 @@ void loop() {
     }
 }
 
-string getSerialString()
+String getSerialString()
 {
   delay(500);
   
@@ -42,11 +44,11 @@ string getSerialString()
 
 String extractPhoneNumber(const String &iString)
 {
-    int sPos = inputString.indexOf("+CLIP: \"+") + 9; // A telefonszam kezdete
+    int sPos = iString.indexOf("+CLIP: \"+") + 9; // A telefonszam kezdete
     
-    int ePos = inputString.indexOf("\",", startPos); // A telefonszam vege
+    int ePos = iString.indexOf("\",", sPos); // A telefonszam vege
     
-    if (startPos >= 0 && endPos >= 0) {
+    if (sPos >= 0 && ePos >= 0) {
         return iString.substring(sPos, ePos); // A konkret szam visszaadasa
     }
     return ""; // Ures string vissza, ha nincs szam
