@@ -1,7 +1,7 @@
 
 #include <SoftwareSerial.h>
 
-String knownNumber = "+36302125195";
+String knownNumber;
 SoftwareSerial sshield(7, 8);
 
 void setup() {
