@@ -35,14 +35,14 @@ void loop() {
       number = parseSMS(buffer);
       if(!number.equals(""))
       {
-        knownNumber.append(number);
+        knownNumber+=number;
       }
     }
 }
 
 String getSerialString()
 {
-  delay(500);s
+  delay(500);
   
   while(sshield.available()) 
   {
